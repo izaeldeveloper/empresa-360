@@ -13,6 +13,7 @@ import Leads from "@/components/vendas/Leads.vue";
 import Contratos from "@/components/vendas/Contratos.vue";
 import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Lead from '@/components/vendas/Lead.vue';
+import VendasPadrao from './components/vendas/VendasPadrao.vue';
 
 //Criando constante com um array de rotas da aplicação.
 const routes = [
@@ -29,12 +30,13 @@ const routes = [
                 path: 'vendas',
                 component: Vendas ,
                 children: [ //Componentes Filhos Da Vendas
-                    { path: 'leads', component: Leads },
-                    { path: 'leads/:id', component: Lead },
-                    { path: 'contratos', component: Contratos }
+                    { path: 'leads', component: Leads, name: 'leads'},
+                    { path: 'leads/:id', component: Lead, name: 'lead' },
+                    { path: 'contratos', component: Contratos, name: 'contratos' },
+                    { path: '', component: VendasPadrao}
                 ]
             },
-            { path: 'servicos', component: Servicos },
+            { path: 'servicos', component: Servicos, name: 'servicos' },
             { path: 'dashboard', component: Dashboard}
         ]
     },
