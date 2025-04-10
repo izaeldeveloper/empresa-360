@@ -12,6 +12,7 @@ import Servicos from "@/components/servicos/Servicos.vue";
 import Leads from "@/components/vendas/Leads.vue";
 import Contratos from "@/components/vendas/Contratos.vue";
 import Dashboard from '@/components/dashboard/Dashboard.vue';
+import Lead from '@/components/vendas/Lead.vue';
 
 //Criando constante com um array de rotas da aplicação.
 const routes = [
@@ -29,6 +30,7 @@ const routes = [
                 component: Vendas ,
                 children: [ //Componentes Filhos Da Vendas
                     { path: 'leads', component: Leads },
+                    { path: 'leads/:id', component: Lead },
                     { path: 'contratos', component: Contratos }
                 ]
             },
