@@ -15,6 +15,9 @@ import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Lead from '@/components/vendas/Lead.vue';
 import VendasPadrao from './components/vendas/VendasPadrao.vue';
 import Servico from './components/servicos/Servico.vue';
+import Opcoes from './components/servicos/Opcoes.vue';
+import Indicadores from './components/servicos/Indicadores.vue';
+import DashboardRodape from './components/dashboard/DashboardRodape.vue';
 
 //Criando constante com um array de rotas da aplicação.
 const routes = [
@@ -41,11 +44,25 @@ const routes = [
                 path: 'servicos',
                 component: Servicos,
                 children: [
-                    { path: ':id', component: Servico, name: 'servico' }
+                    { 
+                        path: ':id', 
+                        components: {
+                            default: Servico,
+                            opcoes: Opcoes,
+                            indicadores: Indicadores
+                        }, 
+                        name: 'servico' 
+                    }
                 ],
                 name: 'servicos' 
             },
-            { path: 'dashboard', component: Dashboard}
+            { 
+                path: 'dashboard', 
+                components: {
+                    default: Dashboard,
+                    rodape: DashboardRodape
+                }
+            }
         ]
     },
     { //Componente Login
